@@ -112,13 +112,14 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
             top: req.body.top,
             semanticConfiguration: req.body.semanticConfig,
             queryLanguage: req.body.queryLanguage,
+            suggesterName: "autocomplete"
         }
         if(body.queryType === 'semantic'){
             body['answers'] = "extractive|count-3"
             body['captions'] = "extractive|highlight-true"
         }
         if (index) {
-            let url = `${process.env.COGSEARCH_URL}/indexes/${index}/docs/search?api-version=2021-04-30-Preview`
+            let url = `${process.env.COGSEARCH_URL}/indexes/${index}/docs/autocomplete?api-version=2021-04-30-Preview`
             const axiosResult = await axios.post(url, body, headers)
             // let url = `${process.env.COGSEARCH_URL}/indexes/${index}/docs?api-version=2021-04-30-Preview&search=${encodeURIComponent(text)}&queryLanguage=en-US&queryType=semantic&captions=extractive&answers=extractive%7Ccount-3&semanticConfiguration=${semanticConfig}`
             // if(semantic === 'false'){
