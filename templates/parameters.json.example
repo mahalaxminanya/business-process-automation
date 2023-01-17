@@ -3,13 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "projectName": {
-            "value": ""
+            "value": "bpaprojectmahi"
           },
           "repositoryToken": {
-            "value": ""
+            "value": "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"
           },
           "repositoryUrl": {
-            "value": ""
+            "value": "https://github.com/mahalaxminanya/business-process-automation"
           }
     }
 }
